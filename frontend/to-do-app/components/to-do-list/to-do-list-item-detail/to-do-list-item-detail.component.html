@@ -1,1 +1,7 @@
 <p>to-do-list-item-detail works!</p>
+<section *ngFor="let listItem of item?.list">
+    <p>{{listItem.item}}</p>
+    <mat-icon>check</mat-icon>
+    <mat-icon>delete</mat-icon>
+</section>
+
