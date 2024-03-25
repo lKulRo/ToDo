@@ -1,5 +1,9 @@
-<p>to-do-list works!</p>
-<form>
-    <input type="text" placeholder="Filter by city" />
-    <button class="primary" type="button">Search</button>
-</form>
+<section>
+    <form>
+      <input type="text" placeholder="Filter ToDoLists" />
+      <button class="primary" type="button">Add</button>
+    </form>
+  </section>
+  <section class="results">
+    <app-to-do-list-item *ngFor="let toDoListItem of toDoListItems" [toDoListItem]="toDoListItem"></app-to-do-list-item>
+</section>

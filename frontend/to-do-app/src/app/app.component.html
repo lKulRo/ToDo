@@ -1,2 +1,11 @@
-<div>app component</div>
-<app-to-do-list></app-to-do-list>
+<main>
+    <a [routerLink]="['/']">
+      <header class="brand-name">
+        <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true" />
+        <p>PROPRO</p>
+      </header>
+    </a>
+    <section class="content">
+      <router-outlet></router-outlet>
+    </section>
+</main>
