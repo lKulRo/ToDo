@@ -1,4 +1,3 @@
 <section class="listing">
-    <h2 class="listing-heading">{{ toDoListItem.toDoListName }}</h2>
-    <a [routerLink]="['/details', toDoListItem.id]">Learn More</a>
+    <a [routerLink]="['/details', toDoListItem.id]">{{ toDoListItem.toDoListName }}</a>
 </section>

@@ -14,4 +14,17 @@ import { ToDoListService } from '../../services/to-do-list.service';
 export class ToDoListComponent {
   toDoListService: ToDoListService = inject(ToDoListService)
   toDoListItems: ToDoListItem[] = this.toDoListService.getToDoListItems();
+
+  filterList(text: string){
+    if(!text){
+      this.toDoListItems= this.toDoListService.getToDoListItems();
+      return
+    }
+    this.toDoListItems = this.toDoListItems.filter(
+      (lsitItem) => lsitItem?.toDoListName.toLowerCase().includes(text.toLowerCase()),
+    );
+  }
+  addToDoListItem(text: string){
+    this.toDoListService.addToDoListItem(text);
+  }
 }

@@ -57,4 +57,8 @@ export class ToDoListService {
   getToDoListItemsDetailById(id: number): ToDoListItemDetails | undefined {
     return this.toDoListItemDetails.find((listItem) => listItem.id == id);
   }
+
+  addToDoListItem(listName: string){
+    this.toDoListItems.push({id: this.toDoListItems.length + 1, toDoListName: listName})
+  }
 }
