@@ -9,5 +9,5 @@ import { ToDoListComponent } from '../../components/to-do-list/to-do-list.compon
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'to-do-app';
+  // title = 'to-do-app';
 }

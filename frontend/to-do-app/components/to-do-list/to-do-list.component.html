@@ -1,18 +1,25 @@
 <section>
-  <form>
-    <input type="text" placeholder="Add new ToDoLists" #newItem/>
-    <button class="primary" type="button" (click)="addToDoListItem(newItem.value)">Add</button>
+  <form [formGroup]="addForm">
+    <mat-form-field>
+      <input mat-input type="text" placeholder="Add new ToDoLists" formControlName="add" #newItem/>
+    </mat-form-field>
+    <button class="primary" type="button" mat-stroked-button (click)="addToDoList(newItem.value)">Add</button>
   </form>
 </section>
 <section>
-  <form>
-    <input type="text" placeholder="Filter List" #filter />
-    <button class="primary" type="button" (click)="filterList(filter.value)">Search</button>
+  <form [formGroup]="filterForm">
+    <mat-form-field>
+      <input mat-input type="text" placeholder="Filter List" formControlName="filter" #filter />
+    </mat-form-field>
+    <button type="button" mat-stroked-button (click)="filterList(filter.value)">Search</button>
   </form>
 </section>
 <section class="results">
+  <mat-nav-list>
   <app-to-do-list-item
     *ngFor="let toDoListItem of toDoListItems"
     [toDoListItem]="toDoListItem"
+    (deleted)="updateList()"
   ></app-to-do-list-item>
+  </mat-nav-list>
 </section>

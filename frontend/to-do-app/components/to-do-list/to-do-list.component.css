@@ -34,3 +34,8 @@
         grid-template-columns: 1fr;
     }    
   } */
+.results{
+  max-width: 80%;
+  text-align: center;
+  padding-left: 10%;
+}

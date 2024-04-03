@@ -1,39 +1,20 @@
 import { Injectable } from '@angular/core';
 import { ToDoListItem } from '../interfaces/to-do-list-item';
 import { ToDoListItemDetails } from '../interfaces/to-do-list-item-details';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ToDoListService {
-  constructor() {}
-
-  toDoListItems: ToDoListItem[] = [
-    {
-      id: 1,
-      toDoListName: 'first List',
-    },
-    {
-      id: 2,
-      toDoListName: 'ToDoList',
-    },
-    {
-      id: 3,
-      toDoListName: 'Einkaufsliste',
-    },
-    {
-      id: 4,
-      toDoListName: 'IdeenListe',
-    },
-    {
-      id: 5,
-      toDoListName: 'Ablaufplan',
-    },
-    {
-      id: 6,
-      toDoListName: 'WunschListe',
-    },
-  ];
+  private baseUrl = "https://localhost:7275/todolists"
+  private headers = new HttpHeaders();
+  
+  constructor(private httpClient: HttpClient) {
+    this.headers = this.headers.set('Content-Type', 'application/json; charset=utf-8');
+  }
+  
 
   toDoListItemDetails: ToDoListItemDetails[] = [
     {
@@ -49,16 +30,25 @@ export class ToDoListService {
       list: [{id:2, item: "asdf33"}, {id:1, item:"qwe33"}],
     }
   ]
+  
 
-  getToDoListItems(): ToDoListItem[] {
-    return this.toDoListItems;
+  getToDoListItems(): Observable<ToDoListItem[]> {
+    // return this.toDoListItems;
+    return this.httpClient.get<ToDoListItem[]>(this.baseUrl);
   }
 
-  getToDoListItemsDetailById(id: number): ToDoListItemDetails | undefined {
-    return this.toDoListItemDetails.find((listItem) => listItem.id == id);
+  getToDoListItemsDetailById(id: number): Observable<ToDoListItem[]> {
+    // return this.toDoListItemDetails.find((listItem) => listItem.id == id);
+    return this.httpClient.get<ToDoListItem[]>(this.baseUrl+`/${id}`)
   }
 
-  addToDoListItem(listName: string){
-    this.toDoListItems.push({id: this.toDoListItems.length + 1, toDoListName: listName})
+  addToDoList(listName: string): Observable<void>{
+    // this.toDoListItems.push({id: this.toDoListItems.length + 1, name: listName})
+    return this.httpClient.post<void>(this.baseUrl, `\"${listName}\"`, {headers: this.headers});
+  }
+
+  deleteToDoList(id: number): Observable<void>{
+    // this.toDoListItems.push({id: this.toDoListItems.length + 1, name: listName})
+    return this.httpClient.delete<void>(this.baseUrl+`/${id}`);
   }
 }

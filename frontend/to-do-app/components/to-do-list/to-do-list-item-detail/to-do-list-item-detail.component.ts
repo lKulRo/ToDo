@@ -3,6 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute } from '@angular/router';
 import { ToDoListService } from '../../../services/to-do-list.service';
 import { CommonModule } from '@angular/common';
+import { ToDoListItem } from '../../../interfaces/to-do-list-item';
 
 @Component({
   selector: 'app-to-do-list-item-detail',
@@ -16,5 +17,9 @@ export class ToDoListItemDetailComponent {
   toDoListService = inject(ToDoListService);
 
   id = Number(this.route.snapshot.params['id']);
-  item = this.toDoListService.getToDoListItemsDetailById(this.id);
+  items: ToDoListItem[] = [];
+
+  constructor(){
+    this.toDoListService.getToDoListItemsDetailById(this.id).subscribe( res => this.items = res)
+  }
 }
