@@ -1,0 +1,35 @@
+<section class="inputs">
+  <form>
+    <mat-form-field [formGroup]="addForm">
+      <input
+        matInput
+        type="text"
+        placeholder="Add..."
+        formControlName="add"
+        #newItem
+      />
+    </mat-form-field>
+    <button
+      class="primary"
+      type="button"
+      mat-stroked-button
+      (click)="addFn(newItem.value)"
+    >
+      Add
+    </button>
+  </form>
+  <form>
+    <mat-form-field [formGroup]="filterForm">
+      <input
+        matInput
+        type="text"
+        placeholder="Search..."
+        formControlName="filter"
+        #filter
+      />
+    </mat-form-field>
+    <button type="button" mat-stroked-button (click)="filterFn(filter.value)">
+      Search
+    </button>
+  </form>
+</section>

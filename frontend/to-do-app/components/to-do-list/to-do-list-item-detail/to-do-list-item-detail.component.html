@@ -1,7 +1,19 @@
-<p>to-do-list-item-detail works!</p>
-<section *ngFor="let listItem of items">
-    <p>{{listItem.name}}</p>
-    <mat-icon>check</mat-icon>
-    <mat-icon>delete</mat-icon>
-</section>
+<app-filter-add-input
+  [addFn]="bindAdd"
+  [filterFn]="bindFilter"
+></app-filter-add-input>
 
+@if(items.length > 0){
+
+<mat-list>
+  @for(listItem of items; track listItem.id){
+  <mat-list-item>{{ listItem.name }}</mat-list-item>
+  <mat-action-list>
+    <button mat-list-item><mat-icon>check</mat-icon></button>
+    <button mat-list-item><mat-icon>delete</mat-icon></button>
+  </mat-action-list>
+  }
+</mat-list>
+} @else {
+<p>No Items</p>
+}

@@ -1,6 +1,5 @@
 <section class="listing">
     <mat-list-item [routerLink]="['/details', toDoListItem.id]">{{ toDoListItem.name }}</mat-list-item>
-    <!-- <button type="button" (click)="deleteToDoList()"><mat-icon>delete</mat-icon></button> -->
     <mat-action-list>
         <button mat-icon-button mat-list-item (click)="deleteToDoList()"><mat-icon>delete</mat-icon></button>
     </mat-action-list>

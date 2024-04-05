@@ -1,0 +1,14 @@
+.inputs {
+  display: inline-block;
+  max-width: 80%;
+  text-align: center;
+  padding-left: 10%;
+}
+.inputs mat-form-field {
+  max-height: fit-content;
+}
+button {
+  margin-top: -0.1em;
+  padding: 2em 0;
+  line-height: 1.125;
+}

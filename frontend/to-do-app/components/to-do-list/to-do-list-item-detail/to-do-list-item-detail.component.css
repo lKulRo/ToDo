@@ -1,0 +1,15 @@
+mat-list {
+  padding-top: 15px;
+  grid-template-columns: 8fr 2fr;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+mat-action-list {
+  display: flex;
+}
+mat-list, p {
+  text-align: left;
+  max-width: 80%;
+  padding-left: 10%;
+}
