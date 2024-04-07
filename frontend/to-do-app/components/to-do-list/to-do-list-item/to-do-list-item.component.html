@@ -1,6 +1,31 @@
 <section class="listing">
-    <mat-list-item [routerLink]="['/details', toDoListItem.id]">{{ toDoListItem.name }}</mat-list-item>
-    <mat-action-list>
-        <button mat-icon-button mat-list-item (click)="deleteToDoList()"><mat-icon>delete</mat-icon></button>
-    </mat-action-list>
+  @if(!editOn){
+  <mat-list-item [routerLink]="['/details', toDoListItem.id]">{{
+    toDoListItem.name
+  }}</mat-list-item>
+  <mat-action-list>
+    <button mat-icon-button mat-list-item (click)="edit(); editDefaultValue()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button mat-list-item (click)="deleteToDoList()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-action-list>
+  }@else{
+  <mat-form-field [formGroup]="editForm">
+    <input matInput type="text" formControlName="edit" #editValue />
+  </mat-form-field>
+  <mat-action-list>
+    <button
+      mat-icon-button
+      mat-list-item
+      (click)="updateToDoList(editValue.value)"
+    >
+      <mat-icon>check</mat-icon>
+    </button>
+    <button mat-icon-button mat-list-item (click)="edit()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-action-list>
+  }
 </section>
