@@ -18,6 +18,6 @@ export class ToDoListItemComponent {
   toDoListService: ToDoListService = inject(ToDoListService);
   
   deleteToDoList(){
-    this.toDoListService.deleteToDoList(this.toDoListItem.id).subscribe({complete: () => this.deleted.emit()});
+    this.toDoListService.deleteToDoLists(this.toDoListItem.id).subscribe({complete: () => this.deleted.emit()});
   }
 }

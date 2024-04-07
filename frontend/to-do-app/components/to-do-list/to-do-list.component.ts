@@ -29,7 +29,7 @@ export class ToDoListComponent {
   }
 
   updateList() {
-    this.toDoListService.getToDoListItems().subscribe((itemList) => {
+    this.toDoListService.getToDoLists().subscribe((itemList) => {
       this.toDoListItems = itemList;
     });
   }
@@ -45,7 +45,7 @@ export class ToDoListComponent {
   }
 
   addToDoList(text: string) {
-    this.toDoListService.addToDoList(text).subscribe({
+    this.toDoListService.addToDoLists(text).subscribe({
       complete: () => this.updateList(),
     });
   }

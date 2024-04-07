@@ -14,23 +14,27 @@ export class ToDoListService {
     this.headers = this.headers.set('Content-Type', 'application/json; charset=utf-8');
   }
 
-  getToDoListItems(): Observable<ToDoListItem[]> {
+  getToDoLists(): Observable<ToDoListItem[]> {
     return this.httpClient.get<ToDoListItem[]>(this.baseUrl);
   }
 
-  getToDoListItemsDetailById(id: number): Observable<ToDoListItem[]> {
+  getToDoListItems(id: number): Observable<ToDoListItem[]> {
     return this.httpClient.get<ToDoListItem[]>(this.baseUrl+`/${id}`)
   }
 
-  addToDoList(listName: string): Observable<void>{
+  addToDoLists(listName: string): Observable<void>{
     return this.httpClient.post<void>(this.baseUrl, `\"${listName}\"`, {headers: this.headers});
   }
 
-  addToDoListItem(listName: string, id: number): Observable<void>{
+  addToDoListItems(listName: string, id: number): Observable<void>{
     return this.httpClient.post<void>(this.baseUrl+`/${id}`, `\"${listName}\"`, {headers: this.headers});
   }
 
-  deleteToDoList(id: number): Observable<void>{
+  deleteToDoLists(id: number): Observable<void>{
     return this.httpClient.delete<void>(this.baseUrl+`/${id}`);
+  }
+
+  updateToDoLists(listName: string, id: number): Observable<void>{
+    return this.httpClient.put<void>(this.baseUrl+`/${id}`, `\"${listName}\"`, {headers: this.headers});
   }
 }

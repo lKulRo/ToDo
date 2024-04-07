@@ -1,5 +1,5 @@
 <section class="inputs">
-  <form>
+  <div>
     <mat-form-field [formGroup]="addForm">
       <input
         matInput
@@ -7,6 +7,7 @@
         placeholder="Add..."
         formControlName="add"
         #newItem
+        (keydown.enter)="addFn(newItem.value)"
       />
     </mat-form-field>
     <button
@@ -17,8 +18,8 @@
     >
       Add
     </button>
-  </form>
-  <form>
+  </div>
+  <div>
     <mat-form-field [formGroup]="filterForm">
       <input
         matInput
@@ -26,10 +27,11 @@
         placeholder="Search..."
         formControlName="filter"
         #filter
+        (keydown.enter)="filterFn(filter.value)"
       />
     </mat-form-field>
     <button type="button" mat-stroked-button (click)="filterFn(filter.value)">
       Search
     </button>
-  </form>
+  </div>
 </section>

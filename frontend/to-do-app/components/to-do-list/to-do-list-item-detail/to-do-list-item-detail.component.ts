@@ -34,13 +34,13 @@ export class ToDoListItemDetailComponent {
 
   updateItems() {
     this.toDoListService
-      .getToDoListItemsDetailById(this.id)
+      .getToDoListItems(this.id)
       .subscribe((res) => (this.items = res));
   }
 
   addItem(text: string) {
     this.toDoListService
-      .addToDoListItem(text, this.id)
+      .addToDoListItems(text, this.id)
       .subscribe({ complete: () => this.updateItems() });
   }
 
