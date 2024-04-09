@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ToDoListItemComponent } from './to-do-list-item/to-do-list-item.component';
-import { ToDoListItem } from '../../interfaces/to-do-list-item';
+import { ToDoList } from '../../interfaces/to-do-list';
 import { CommonModule } from '@angular/common';
 import { ToDoListService } from '../../services/to-do-list.service';
 import { MatListModule } from '@angular/material/list';
@@ -21,7 +21,7 @@ import { FilterAddInputComponent } from '../filter-add-input/filter-add-input.co
 export class ToDoListComponent {
   public bindAddToDoList = this.addToDoList.bind(this);
   public bindFilterList = this.filterList.bind(this);
-  public toDoListItems: ToDoListItem[] = [];
+  public toDoListItems: ToDoList[] = [];
   private toDoListService: ToDoListService = inject(ToDoListService);
 
   constructor() {

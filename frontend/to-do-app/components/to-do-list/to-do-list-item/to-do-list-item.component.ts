@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
-import { ToDoListItem } from '../../../interfaces/to-do-list-item';
+import { ToDoList } from '../../../interfaces/to-do-list';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { ToDoListService } from '../../../services/to-do-list.service';
@@ -23,7 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   styleUrl: './to-do-list-item.component.css',
 })
 export class ToDoListItemComponent {
-  @Input() toDoListItem!: ToDoListItem;
+  @Input() toDoListItem!: ToDoList;
   @Output() deleted = new EventEmitter();
   toDoListService: ToDoListService = inject(ToDoListService);
   editOn = false;
@@ -41,9 +41,11 @@ export class ToDoListItemComponent {
   edit() {
     this.editOn = !this.editOn;
   }
+
   editDefaultValue(){
     this.editForm.setValue({edit: this.toDoListItem.name})
   }
+  
   updateToDoList(text: string){
     this.toDoListService.updateToDoLists(text, this.toDoListItem.id).subscribe({complete: () => {
       this.edit();

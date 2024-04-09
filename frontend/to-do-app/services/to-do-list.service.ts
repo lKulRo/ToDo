@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ToDoListItem } from '../interfaces/to-do-list-item';
+import { ToDoList } from '../interfaces/to-do-list';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -14,12 +14,12 @@ export class ToDoListService {
     this.headers = this.headers.set('Content-Type', 'application/json; charset=utf-8');
   }
 
-  getToDoLists(): Observable<ToDoListItem[]> {
-    return this.httpClient.get<ToDoListItem[]>(this.baseUrl);
+  getToDoLists(): Observable<ToDoList[]> {
+    return this.httpClient.get<ToDoList[]>(this.baseUrl);
   }
 
-  getToDoListItems(id: number): Observable<ToDoListItem[]> {
-    return this.httpClient.get<ToDoListItem[]>(this.baseUrl+`/${id}`)
+  getToDoListItems(id: number): Observable<ToDoList[]> {
+    return this.httpClient.get<ToDoList[]>(this.baseUrl+`/${id}`)
   }
 
   addToDoLists(listName: string): Observable<void>{
@@ -34,7 +34,15 @@ export class ToDoListService {
     return this.httpClient.delete<void>(this.baseUrl+`/${id}`);
   }
 
+  deleteToDoListItems(listId: number, itemId:number): Observable<void>{
+    return this.httpClient.delete<void>(this.baseUrl+`/${listId}/${itemId}`);
+  }
+
   updateToDoLists(listName: string, id: number): Observable<void>{
     return this.httpClient.put<void>(this.baseUrl+`/${id}`, `\"${listName}\"`, {headers: this.headers});
+  }
+
+  updateToDoListItems(listName: string, listId: number, itemId: number): Observable<void>{
+    return this.httpClient.put<void>(this.baseUrl+`/${listId}/${itemId}`, `\"${listName}\"`, {headers: this.headers});
   }
 }
