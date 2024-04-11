@@ -1,0 +1,15 @@
+dist
+node_modules
+coverage
+k8s
+junit
+.editorconfig
+.git
+.gitignore
+.prettierignore
+.prettierrc.json
+.run
+.idea
+*.zip
+*.md
+Dockerfile

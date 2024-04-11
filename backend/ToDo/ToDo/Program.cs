@@ -9,7 +9,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "localhost",
                       policy =>
                       {
-                          policy.WithOrigins("http://localhost:4200");
+                          policy.WithOrigins("http://localhost:4200", "http://localhost:8080");
                           policy.WithMethods("POST", "PUT", "DELETE", "GET");
                           policy.AllowAnyHeader();
                       });
