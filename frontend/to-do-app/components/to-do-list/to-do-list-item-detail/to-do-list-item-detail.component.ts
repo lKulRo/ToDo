@@ -9,6 +9,7 @@ import { MatListModule } from '@angular/material/list';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
 
 interface editToDo {
   toDo: ToDoList;
@@ -29,6 +30,7 @@ interface editToDo {
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatCardModule,
   ],
 })
 export class ToDoListItemDetailComponent {

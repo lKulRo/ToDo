@@ -1,14 +1,21 @@
-<app-filter-add-input
-  [addFn]="bindAddToDoList"
-  [filterFn]="bindFilterList"
-></app-filter-add-input>
-<section class="results">
-  <mat-nav-list>
-    @for (toDoListItem of toDoListItems; track toDoListItem.id) {
-    <app-to-do-list-item
-      [toDoListItem]="toDoListItem"
-      (deleted)="updateList()"
-    ></app-to-do-list-item>
-    }
-  </mat-nav-list>
-</section>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> ToDo Liste </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-filter-add-input
+      [addFn]="bindAddToDoList"
+      [filterFn]="bindFilterList"
+    ></app-filter-add-input>
+    <section class="results">
+      <mat-nav-list>
+        @for (toDoListItem of toDoListItems; track toDoListItem.id) {
+        <app-to-do-list-item
+          [toDoListItem]="toDoListItem"
+          (deleted)="updateList()"
+        ></app-to-do-list-item>
+        }
+      </mat-nav-list>
+    </section>
+  </mat-card-content>
+</mat-card>

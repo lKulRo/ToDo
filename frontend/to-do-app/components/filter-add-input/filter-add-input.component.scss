@@ -1,8 +1,5 @@
 .inputs {
-  display: inline-block;
-  max-width: 80%;
-  text-align: center;
-  padding-left: 10%;
+  display: table;
 }
 .inputs mat-form-field {
   max-height: fit-content;

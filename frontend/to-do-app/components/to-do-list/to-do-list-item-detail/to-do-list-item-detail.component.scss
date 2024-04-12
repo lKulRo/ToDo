@@ -8,8 +8,7 @@ mat-list {
 mat-action-list {
   display: flex;
 }
-mat-list, p {
+p, mat-list-item {
   text-align: left;
-  max-width: 80%;
-  padding-left: 10%;
 }
+ @import '../to-do-list.component.scss';

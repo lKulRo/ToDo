@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ToDoListService } from '../../services/to-do-list.service';
 import { MatListModule } from '@angular/material/list';
 import { FilterAddInputComponent } from '../filter-add-input/filter-add-input.component';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-to-do-list',
@@ -16,6 +17,7 @@ import { FilterAddInputComponent } from '../filter-add-input/filter-add-input.co
     CommonModule,
     MatListModule,
     FilterAddInputComponent,
+    MatCardModule
   ],
 })
 export class ToDoListComponent {
