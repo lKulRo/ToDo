@@ -13,7 +13,7 @@
     <button
       class="primary"
       type="button"
-      mat-stroked-button
+      mat-flat-button
       (click)="addFn(newItem.value)"
     >
       Add
@@ -30,7 +30,7 @@
         (keydown.enter)="filterFn(filter.value)"
       />
     </mat-form-field>
-    <button type="button" mat-stroked-button (click)="filterFn(filter.value)">
+    <button type="button" mat-flat-button (click)="filterFn(filter.value)">
       Search
     </button>
   </div>
