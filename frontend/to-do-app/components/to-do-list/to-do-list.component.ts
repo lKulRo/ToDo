@@ -10,7 +10,7 @@ import { FilterAddInputComponent } from '../filter-add-input/filter-add-input.co
   selector: 'app-to-do-list',
   standalone: true,
   templateUrl: './to-do-list.component.html',
-  styleUrl: './to-do-list.component.css',
+  styleUrl: './to-do-list.component.scss',
   imports: [
     ToDoListItemComponent,
     CommonModule,

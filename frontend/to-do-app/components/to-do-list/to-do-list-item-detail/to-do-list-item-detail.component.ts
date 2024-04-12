@@ -20,7 +20,7 @@ interface editToDo {
   selector: 'app-to-do-list-item-detail',
   standalone: true,
   templateUrl: './to-do-list-item-detail.component.html',
-  styleUrl: './to-do-list-item-detail.component.css',
+  styleUrl: './to-do-list-item-detail.component.scss',
   imports: [
     MatIconModule,
     CommonModule,

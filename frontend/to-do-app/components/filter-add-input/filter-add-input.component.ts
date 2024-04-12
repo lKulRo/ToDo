@@ -14,7 +14,7 @@ import { MatInputModule } from '@angular/material/input';
     ReactiveFormsModule,
   ],
   templateUrl: './filter-add-input.component.html',
-  styleUrl: './filter-add-input.component.css',
+  styleUrl: './filter-add-input.component.scss',
 })
 export class FilterAddInputComponent {
   @Input() public addFn!: (text:string)=> void ;

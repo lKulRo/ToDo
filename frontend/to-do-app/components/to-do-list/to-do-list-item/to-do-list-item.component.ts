@@ -20,7 +20,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ReactiveFormsModule,
   ],
   templateUrl: './to-do-list-item.component.html',
-  styleUrl: './to-do-list-item.component.css',
+  styleUrl: './to-do-list-item.component.scss',
 })
 export class ToDoListItemComponent {
   @Input() toDoListItem!: ToDoList;
